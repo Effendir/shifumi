@@ -4,6 +4,7 @@ let scissorsButton = document.querySelector(".scissors");
 let wrapper = document.querySelector(".wrapper");
 let resultMsg = document.querySelector(".result-msg");
 let score = document.querySelector(".score");
+let round = 0;
 
 function getComputerChoice() {
   let choices = ["Paper", "Rock", "Scissors"];
@@ -24,6 +25,7 @@ function getPlayerChoice() {
 }
 
 function rockPaperScissorsRound(playerSelection, computerSelection) {
+  round++;
   if (playerSelection === computerSelection) {
     resultMsg.innerText = "It's a tie!";
   } else if (playerSelection === "Paper" && computerSelection === "Scissors" || playerSelection === "Rock" && computerSelection === "Paper" || playerSelection === "Scissors" && computerSelection === "Rock") {
@@ -33,19 +35,10 @@ function rockPaperScissorsRound(playerSelection, computerSelection) {
     playerScore++;
     resultMsg.innerText = `You Win! ${playerSelection} beats ${computerSelection}.`;
   }
-  score.innerText = `Score : Player - ${playerScore} / Computer - ${computerScore}`;
-  checkScore(playerScore, computerScore);
+  score.innerText = `Round ${round} : Player ${playerScore} / Computer ${computerScore}`;
 }
 
 let playerScore = 0;
 let computerScore = 0;
-
-function checkScore(player, computer) {
-  if (player === 5) {
-    score.innerText += " | You won the game with 5 points"
-  } else if (computer === 5) {
-    score.innerText += " | You lose that game, computer won with 5 points"
-  }
-}
 
 getPlayerChoice();
