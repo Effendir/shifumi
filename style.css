@@ -1,22 +1,31 @@
 h1, h2, p {
   text-align: center;
   color: white;
-  padding: 15px;
 }
 
 button {
-  width: 150px;
-  height: 150px;
+  position: relative;
+  width: 15%;
   color: white;
   background-color: rgba(0,0,0,0.5);
   border: solid white 2px;
   border-radius: 15px;
-  margin: 50px;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
 }
 
 button img {
-  width: 100px;
-  height: 100px;
+  position: absolute;
+  width: 80%;
+  height: 80%;
 }
 
 .wrapper {
@@ -28,6 +37,7 @@ button img {
   bottom: 0;
   position: absolute;
   display: flex;
+  gap: 10%;
   flex-direction: column;
   justify-content: center;
   background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
@@ -66,8 +76,8 @@ button img {
 
 .result {
   background: rgba(0,0,0,0.5);
-  margin-left: 25%;
-  margin-right: 25%;
+  margin-left: 15%;
+  margin-right: 15%;
   border-radius: 15px;
   border: solid white 2px;
 }
