@@ -28,7 +28,37 @@ button img {
   height: 80%;
 }
 
-.wrapper {
+footer {
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(58, 34, 2, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+  box-sizing: border-box;
+  color: white;
+  height: 80px;
+}
+
+footer a {
+  color: white;
+  font-size: x-large;
+}
+
+footer a:hover {
+  color: grey;
+}
+
+/* @media screen and (max-width: 949px) {
+  footer {
+    display: none;
+  }
+} */
+
+.container {
   height: 100%;
   width: 100%;
   left:0;
