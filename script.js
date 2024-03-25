@@ -5,38 +5,58 @@ let wrapper = document.querySelector(".wrapper");
 let resultMsg = document.querySelector(".result-msg");
 let score = document.querySelector(".score");
 let round = 0;
+let computerChoiceButton = document.querySelector(".computer-choice");
+let retryButton =  document.querySelector(".retry");
 
 function getComputerChoice() {
-  let choices = ["Paper", "Rock", "Scissors"];
+  let choices = ["paper", "rock", "scissors"];
   let randomElement = choices[Math.floor(Math.random() * choices.length)];
+  computerChoiceButton.innerHTML = `<img src="images/${randomElement}.png" alt="${randomElement}">`
   return randomElement;
 }
 
 function getPlayerChoice() {
   rockButton.addEventListener("click", () => {
-    rockPaperScissorsRound("Rock", getComputerChoice());
+    rockPaperScissorsRound("rock", getComputerChoice());
+    paperButton.style.display = "none";
+    scissorsButton.style.display = "none";
   })
   paperButton.addEventListener("click", () => {
-    rockPaperScissorsRound("Paper", getComputerChoice());
+    rockPaperScissorsRound("paper", getComputerChoice());
+    scissorsButton.style.display = "none";
+    rockButton.style.display = "none";
   })
   scissorsButton.addEventListener("click", () => {
-    rockPaperScissorsRound("Scissors", getComputerChoice());
+    rockPaperScissorsRound("scissors", getComputerChoice());
+    rockButton.style.display = "none";
+    paperButton.style.display = "none";
   })
 }
 
 function rockPaperScissorsRound(playerSelection, computerSelection) {
   round++;
   if (playerSelection === computerSelection) {
-    resultMsg.innerText = "It's a tie!";
-  } else if (playerSelection === "Paper" && computerSelection === "Scissors" || playerSelection === "Rock" && computerSelection === "Paper" || playerSelection === "Scissors" && computerSelection === "Rock") {
+    resultMsg.innerText = `It's a tie! You both picked ${computerSelection}`;
+    resultMsg.style.color = "yellow";
+  } else if (playerSelection === "paper" && computerSelection === "scissors" || playerSelection === "rock" && computerSelection === "paper" || playerSelection === "scissors" && computerSelection === "rock") {
     computerScore++;
-    resultMsg.innerText = `You lose, ${computerSelection} beats ${playerSelection}.`;
+    resultMsg.innerText = `You lose, computer picked ${computerSelection}.`;
+    resultMsg.style.color = "red";
   } else {
     playerScore++;
-    resultMsg.innerText = `You Win! ${playerSelection} beats ${computerSelection}.`;
+    resultMsg.innerText = `You Win! Computer picked ${computerSelection}.`;
+    resultMsg.style.color = "green";
   }
   score.innerText = `Round ${round} : Player ${playerScore} / Computer ${computerScore}`;
+  retryButton.style.display = "block";
 }
+
+retryButton.addEventListener("click", () => {
+  scissorsButton.style.display = "flex";
+  rockButton.style.display = "flex";
+  paperButton.style.display = "flex";
+  computerChoiceButton.innerHTML = "";
+})
 
 let playerScore = 0;
 let computerScore = 0;

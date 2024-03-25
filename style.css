@@ -1,6 +1,6 @@
 h1 {
-  margin-top: 10%;
-  margin-bottom: -25%;
+  margin-top: 5%;
+  margin-bottom: -20%;
 }
 
 h1, h2, p {
@@ -8,7 +8,11 @@ h1, h2, p {
   color: white;
 }
 
-button {
+p {
+  font-weight: bold;
+}
+
+.rock, .paper, .scissors, .computer-choice {
   position: relative;
   width: 20%;
   color: white;
@@ -21,13 +25,19 @@ button {
   justify-content: center;
 }
 
-button:after {
+.rock:hover, .paper:hover, .scissors:hover {
+  background-color: rgba(0,0,0,0.9);
+  transition: transform .2s;
+  transform: scale(1.1);
+}
+
+.rock:after, .paper:after, .scissors:after, .computer-choice:after {
   content: "";
   display: block;
   padding-bottom: 100%;
 }
 
-button img {
+.rock img, .paper img, .scissors img, .computer-choice img {
   position: absolute;
   width: 80%;
   height: 80%;
@@ -112,15 +122,28 @@ footer a:hover {
   justify-content: center;
 }
 
-.choices {
+.choices, .computer-choices {
   display: flex;
   justify-content: center;
 }
 
 .result {
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.8);
   margin-left: 15%;
   margin-right: 15%;
   border-radius: 15px;
   border: solid white 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.retry {
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  border: solid white 2px;
+  border-radius: 15px;
+  margin: 20px;
+  font-weight: bold;
+  display: none;
 }
