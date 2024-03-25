@@ -11,7 +11,8 @@ let retryButton =  document.querySelector(".retry");
 function getComputerChoice() {
   let choices = ["paper", "rock", "scissors"];
   let randomElement = choices[Math.floor(Math.random() * choices.length)];
-  computerChoiceButton.innerHTML = `<img src="images/${randomElement}.png" alt="${randomElement}">`
+  computerChoiceButton.innerHTML = `<img src="images/${randomElement}.png" alt="${randomElement}">`;
+  computerChoiceButton.classList.add('paused');
   return randomElement;
 }
 
@@ -55,7 +56,8 @@ retryButton.addEventListener("click", () => {
   scissorsButton.style.display = "flex";
   rockButton.style.display = "flex";
   paperButton.style.display = "flex";
-  computerChoiceButton.innerHTML = "";
+  computerChoiceButton.innerHTML = `<img src="images/rock.png" alt="rock"><img src="images/paper.png" alt="paper"><img src="images/scissors.png" alt="scissors">`;
+  computerChoiceButton.classList.remove('paused');
 })
 
 let playerScore = 0;

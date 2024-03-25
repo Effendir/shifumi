@@ -147,3 +147,52 @@ footer a:hover {
   font-weight: bold;
   display: none;
 }
+
+.computer-choice img:nth-child(1) {
+  opacity: 1;
+  animation: image1Animation 1s infinite;
+}
+
+.computer-choice img:nth-child(2) {
+  opacity: 0;
+  animation: image2Animation 1s infinite;
+}
+
+.computer-choice img:nth-child(3) {
+  opacity: 0;
+  animation: image3Animation 1s infinite;
+}
+
+@keyframes image1Animation {
+  0%, 33.3% {
+    opacity: 1;
+  }
+  33.4%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes image2Animation {
+  0%, 33.3% {
+    opacity: 0;
+  }
+  33.4%, 66.6% {
+    opacity: 1;
+  }
+  66.7%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes image3Animation {
+  0%, 66.6% {
+    opacity: 0;
+  }
+  66.7%, 100% {
+    opacity: 1;
+  }
+}
+
+.computer-choice.paused img {
+  animation-play-state: paused;
+}
