@@ -207,10 +207,12 @@ footer a:hover {
 @media only screen and (min-width: 768px) {
   .result {
     width: 40%;
+    max-width: 800px;
   }
 
   .rock, .paper, .scissors, .computer-choice {
     width: 12%;
+    max-width: 150px;
     margin: 1%;
   }
 
