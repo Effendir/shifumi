@@ -8,7 +8,7 @@
 body {
   margin: 0;
   height: 100%;
-  width: 100%;
+  max-width: 100%;
 }
 
 .container {
@@ -20,12 +20,11 @@ body {
   bottom: 0;
   position: absolute;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10%;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   background-color: #BEAFA3;
-  background: url("images/black-sand.jpg");
+  background: url("images/wallpaper.jpg");
   background-size: cover;
   font-family: "asiana", sans-serif;
 }
@@ -42,38 +41,43 @@ p {
 /* HEADER */
 
 h1 {
+  width: 100%;
   margin: 0;
-  padding: 7%;
   font-family: "asiana", sans-serif;
   font-size: 3em;
+  background: rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
 }
 
 /* WRAPPER */
 
 .wrapper {
   width: 100%;
-  height: auto;
   display: flex;
   flex-direction: column;
-  flex: 1;
 }
 
 .rock, .paper, .scissors, .computer-choice {
   position: relative;
-  width: 20%;
+  width: 150px;
+  height: 150px;
   color: white;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.9);
   border: solid white 5px;
   border-radius: 50%;
-  margin: 2%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.rock:hover, .paper:hover, .scissors:hover, .retry:hover {
+.rock:hover, .paper:hover, .scissors:hover {
   background-color: rgba(255, 255, 255, 0.5);
-  transition: transform .1s;
+  transition: transform 1s;
+  transform: scale(1.2) rotate(360deg);
+}
+
+.retry:hover {
+  background-color: rgba(255, 255, 255, 0.5);
   transform: scale(1.1);
 }
 
@@ -91,28 +95,30 @@ h1 {
 
 .choices, .computer-choices {
   display: flex;
+  gap: 50px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .result {
-  background: rgba(255, 255, 255, 0.05);
   width: 70%;
-  height: 30%;
+  background: rgba(0, 0, 0, 0.7);
   margin-left: auto;
   margin-right: auto;
-  border-radius: 50px;
+  border-radius: 5px;
   border: solid white 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .retry {
   color: white;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.9);
   border: solid white 2px;
-  border-radius: 15px;
+  border-radius: 5px;
   margin: 20px;
   font-weight: bold;
   display: none;
@@ -175,8 +181,7 @@ footer {
   width: 100%;
   bottom: 0;
   left: 0;
-  position: fixed;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -202,22 +207,39 @@ footer a:hover {
   font-size: x-large;
 }
 
+.fa-heart, .fa-mug-hot {
+  color: black;
+}
+
 /* RESPONSIVE */
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 500px) {
   .result {
-    width: 40%;
-    max-width: 800px;
+    border: 3px solid white;
+    width: 70%;
+  }
+
+  .choices {
+    gap: 10px;
   }
 
   .rock, .paper, .scissors, .computer-choice {
-    width: 12%;
-    max-width: 150px;
-    margin: 1%;
+    max-width:100px;
+    max-height: 100px;
+    border: 3px solid white;
   }
 
   h1 {
     padding: 2%;
+    font-size: 2em;
   }
 
+  footer {
+    font-size: small;
+  }
+
+  .footer-links {
+    font-size: small;
+    gap: 20px;
+  }
 }
